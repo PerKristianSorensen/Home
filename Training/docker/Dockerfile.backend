@@ -1,0 +1,11 @@
+FROM openjdk:11-jre-slim
+
+WORKDIR /app
+
+COPY server/target/server.jar /app/server.jar
+COPY api-impl/target/api-impl.jar /app/api-impl.jar
+COPY api/target/api.jar /app/api.jar
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "server.jar"]
